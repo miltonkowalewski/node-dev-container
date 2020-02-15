@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z $PORT ]
+then
+    PORT=8888
+fi
+docker run --rm --user=1000:1000 -w $PWD -v $PWD:$PWD -p $PORT:$PORT --name $(date +%d%m%y-%H%M%S) -ti node npm "$@"
